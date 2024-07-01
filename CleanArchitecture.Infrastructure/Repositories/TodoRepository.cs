@@ -7,7 +7,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace CleanArchitecture.Infrastructure.Repositories;
 
-internal sealed class TodoRepository(ApplicationDbContext context) : ITodoRepository
+public sealed class TodoRepository(ApplicationDbContext context) : ITodoRepository
 {
     public async Task AddAsync(Todo item, CancellationToken cancellationToken = default)
     {
