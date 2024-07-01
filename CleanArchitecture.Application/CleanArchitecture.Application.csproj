@@ -14,4 +14,8 @@
     <ProjectReference Include="..\CleanArchitecture.Domain\CleanArchitecture.Domain.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Features\Todos\DeleteTodo\" />
+  </ItemGroup>
+
 </Project>
