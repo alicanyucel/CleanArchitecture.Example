@@ -2,6 +2,9 @@ using CleanArchitecture.Application.Features.Todos.CreateTodo;
 using CleanArchitecture.Domain.Repositories;
 using CleanArchitecture.Infrastructure.Context;
 using CleanArchitecture.Infrastructure.Repositories;
+using Microsoft.EntityFrameworkCore;
+using static System.Runtime.InteropServices.JavaScript.JSType;
+using System;
 
 namespace CleanArchitecture.WebApi
 {
@@ -16,7 +19,7 @@ namespace CleanArchitecture.WebApi
             // Add services to the container.
             builder.Services.AddDbContext<ApplicationDbContext>(action =>
             {
-
+                action.UseSqlServer("Data Source = DESKTOP - L6NJT48\\SQLEXPRESS; Initial Catalog = AlicanTodoApp; Integrated Security = True; Connect Timeout = 30; Encrypt = False; Trust Server Certificate = False; Application Intent = ReadWrite; Multi Subnet Failover = False");
             });
             builder.Services.AddControllers();
             builder.Services.AddEndpointsApiExplorer();
