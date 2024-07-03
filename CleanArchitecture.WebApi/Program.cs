@@ -17,6 +17,13 @@ namespace CleanArchitecture.WebApi
             configuration.RegisterServicesFromAssembly(typeof(CreateTodoCommand).Assembly));
             builder.Services.AddScoped<ITodoRepository,TodoRepository>();
             // Add services to the container.
+            builder.Services.AddCors(opt =>
+            {
+                opt.AddDefaultPolicy(builder =>
+                {
+                    builder.AllowAnyHeader().AllowAnyMethod().AllowAnyOrigin();
+                });
+            });
             builder.Services.AddDbContext<ApplicationDbContext>(action =>
             {
                 action.UseSqlServer("Data Source = DESKTOP - L6NJT48\\SQLEXPRESS; Initial Catalog = AlicanTodoApp; Integrated Security = True; Connect Timeout = 30; Encrypt = False; Trust Server Certificate = False; Application Intent = ReadWrite; Multi Subnet Failover = False");
@@ -30,6 +37,7 @@ namespace CleanArchitecture.WebApi
                 app.UseSwagger();
                 app.UseSwaggerUI();
             }
+            app.UseCors();
             app.UseHttpsRedirection();
             app.UseAuthorization();
             app.MapControllers();

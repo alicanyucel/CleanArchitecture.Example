@@ -36,7 +36,7 @@ namespace CleanArchitecture.WebApi.Controllers
         public async Task<IActionResult> GetAll(CancellationToken cancellation)
         {
             GetAllTodoQuery request = new();
-            List<Todo> todos = await mediator.Send(request, cancellation);
+            List<GetAllTodoQueryResponse> todos = await mediator.Send(request, cancellation);
             return Ok(todos);
         }
     }
