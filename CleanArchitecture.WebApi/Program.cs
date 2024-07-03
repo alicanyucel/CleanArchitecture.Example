@@ -21,6 +21,7 @@ namespace CleanArchitecture.WebApi
             {
                 action.UseSqlServer("Server=DESKTOP-L6NJT48\\SQLEXPRESS;Initial Catalog=AlicanTodoApp;Integrated Security=True;Connect Timeout=30;Encrypt=False;Trust Server Certificate=False;Application Intent=ReadWrite;Multi Subnet Failover=False");
             });
+            //cors
             builder.Services.AddCors(opt =>
             {
                 opt.AddDefaultPolicy(builder =>
